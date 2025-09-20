@@ -1,0 +1,831 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>EduChain - Blockchain Education Platform</title>
+    
+    <meta name="description" content="Revolutionary blockchain-based education platform for digital certificates, micro-credentials, and secure academic records" />
+    <meta name="author" content="EduChain" />
+    <meta property="og:title" content="EduChain - Blockchain Education Platform" />
+    <meta property="og:description" content="Revolutionary blockchain-based education platform for digital certificates, micro-credentials, and secure academic records" />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="https://images.unsplash.com/photo-1559301703-94ddb1b3188d?w=1200&h=630&fit=crop" />
+    <meta property="og:image:alt" content="Blockchain education platform interface showing digital certificates and verification" />
+    
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="EduChain - Blockchain Education Platform" />
+    <meta name="twitter:description" content="Revolutionary blockchain-based education platform for digital certificates, micro-credentials, and secure academic records" />
+    <meta name="twitter:site" content="@educhain" />
+    <meta name="twitter:image" content="https://images.unsplash.com/photo-1559301703-94ddb1b3188d?w=1200&h=630&fit=crop" />
+
+    <link rel="canonical" href="https://educhain.example.com" />
+    <link rel="stylesheet" href="/style.css">
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+
+    <script type="application/ld+json">
+        {
+          "@context": "https://schema.org",
+          "@type": "WebSite",
+          "name": "EduChain",
+          "url": "https://educhain.example.com",
+          "description": "Revolutionary blockchain-based education platform for digital certificates, micro-credentials, and secure academic records",
+          "publisher": {
+            "@type": "Organization",
+            "name": "EduChain"
+          }
+        }
+    </script>
+</head>
+<body>
+    <div id="app">
+        <!-- Navigation -->
+        <nav class="fixed top-0 left-0 right-0 z-50 navbar-blur border-b border-gray-200">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="flex justify-between items-center h-16">
+                    <div class="flex items-center space-x-2">
+                        <div class="w-10 h-10 blockchain-gradient rounded-lg flex items-center justify-center">
+                            <i data-lucide="graduation-cap" class="w-6 h-6 text-white"></i>
+                        </div>
+                        <span class="text-xl font-bold text-gray-900">EduChain</span>
+                    </div>
+                    
+                    <div class="hidden md:flex items-center space-x-8">
+                        <a href="#home" class="nav-link text-gray-700 hover:text-primary-600 font-medium transition-colors duration-200">Home</a>
+                        <a href="#features" class="nav-link text-gray-700 hover:text-primary-600 font-medium transition-colors duration-200">Features</a>
+                        <a href="#how-it-works" class="nav-link text-gray-700 hover:text-primary-600 font-medium transition-colors duration-200">How It Works</a>
+                        <a href="#pricing" class="nav-link text-gray-700 hover:text-primary-600 font-medium transition-colors duration-200">Pricing</a>
+                    </div>
+                    
+                    <div class="flex items-center space-x-4">
+                        <button id="connectWalletBtn" class="btn-secondary text-sm">
+                            <i data-lucide="wallet" class="w-4 h-4 mr-1"></i>
+                            Connect Wallet
+                        </button>
+                        <button id="loginBtn" class="btn-primary text-sm">Login</button>
+                        <button id="dashboardBtn" class="btn-primary text-sm hidden">Dashboard</button>
+                        <button id="homeBtn" class="btn-secondary text-sm hidden">Home</button>
+                    </div>
+
+                    <!-- Mobile menu button -->
+                    <button id="mobileMenuBtn" class="md:hidden p-2">
+                        <i data-lucide="menu" class="w-6 h-6"></i>
+                    </button>
+                </div>
+
+                <!-- Mobile menu -->
+                <div id="mobileMenu" class="md:hidden hidden bg-white border-t border-gray-200">
+                    <div class="px-4 py-2 space-y-2">
+                        <a href="#home" class="nav-link-mobile block py-2 text-gray-700 hover:text-primary-600">Home</a>
+                        <a href="#features" class="nav-link-mobile block py-2 text-gray-700 hover:text-primary-600">Features</a>
+                        <a href="#how-it-works" class="nav-link-mobile block py-2 text-gray-700 hover:text-primary-600">How It Works</a>
+                        <a href="#pricing" class="nav-link-mobile block py-2 text-gray-700 hover:text-primary-600">Pricing</a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Loading overlay -->
+        <div id="loadingOverlay" class="fixed inset-0 bg-white bg-opacity-90 z-[60] hidden flex items-center justify-center">
+            <div class="text-center">
+                <div class="animate-spin rounded-full h-12 w-12 border-b-2 border-primary-600 mx-auto mb-4"></div>
+                <p class="text-gray-600">Loading...</p>
+            </div>
+        </div>
+
+        <!-- Main Content Container -->
+        <div id="mainContent">
+            <!-- Landing Page -->
+            <div id="landingPage">
+                <!-- Hero Section -->
+                <section id="home" class="pt-20 pb-16 bg-gradient-to-br from-blue-50 to-indigo-100">
+                    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                        <div class="grid lg:grid-cols-2 gap-12 items-center">
+                            <div class="animate-fade-in">
+                                <h1 class="text-4xl md:text-6xl font-bold text-gray-900 leading-tight">
+                                    The Future of
+                                    <span class="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+                                        Education
+                                    </span>
+                                    is Here
+                                </h1>
+                                <p class="text-xl text-gray-600 mt-6 leading-relaxed">
+                                    Secure, verifiable, and immutable digital certificates powered by blockchain technology. 
+                                    Transform how educational achievements are verified and shared globally.
+                                </p>
+                                <div class="flex flex-col sm:flex-row gap-4 mt-8">
+                                    <button id="getStartedBtn" class="btn-primary text-lg px-8 py-3 flex items-center justify-center">
+                                        Get Started
+                                        <i data-lucide="arrow-right" class="w-5 h-5 ml-2"></i>
+                                    </button>
+                                    <button id="watchDemoBtn" class="btn-secondary text-lg px-8 py-3 flex items-center justify-center">
+                                        <i data-lucide="play" class="w-5 h-5 mr-2"></i>
+                                        Watch Demo
+                                    </button>
+                                </div>
+                                <div class="flex items-center space-x-8 mt-12">
+                                    <div class="text-center">
+                                        <div class="text-2xl font-bold text-gray-900">10K+</div>
+                                        <div class="text-sm text-gray-600">Certificates Issued</div>
+                                    </div>
+                                    <div class="text-center">
+                                        <div class="text-2xl font-bold text-gray-900">500+</div>
+                                        <div class="text-sm text-gray-600">Institutions</div>
+                                    </div>
+                                    <div class="text-center">
+                                        <div class="text-2xl font-bold text-gray-900">99.9%</div>
+                                        <div class="text-sm text-gray-600">Security</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="animate-slide-up">
+                                <div class="relative">
+                                    <img src="https://images.unsplash.com/photo-1559301703-94ddb1b3188d?w=600&h=400&fit=crop" 
+                                         alt="Blockchain Education Interface" 
+                                         class="rounded-2xl shadow-2xl w-full">
+                                    <div class="absolute -top-4 -right-4 w-24 h-24 bg-yellow-400 rounded-full flex items-center justify-center animate-bounce-subtle">
+                                        <i data-lucide="shield-check" class="w-12 h-12 text-yellow-800"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Features Section -->
+                <section id="features" class="py-20 bg-white">
+                    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                        <div class="text-center mb-16">
+                            <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+                                Revolutionary Features
+                            </h2>
+                            <p class="text-xl text-gray-600 max-w-2xl mx-auto">
+                                Experience the next generation of educational technology with blockchain-powered solutions
+                            </p>
+                        </div>
+
+                        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                            <div class="card hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+                                <div class="w-12 h-12 blockchain-gradient rounded-lg flex items-center justify-center mb-4">
+                                    <i data-lucide="award" class="w-6 h-6 text-white"></i>
+                                </div>
+                                <h3 class="text-xl font-semibold text-gray-900 mb-3">Digital Certificates</h3>
+                                <p class="text-gray-600 mb-4">
+                                    Issue and verify tamper-proof digital certificates and diplomas as NFTs on the blockchain.
+                                </p>
+                                <button class="text-primary-600 font-medium hover:text-primary-700 transition-colors duration-200">
+                                    Learn More →
+                                </button>
+                            </div>
+
+                            <div class="card hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+                                <div class="w-12 h-12 bg-green-500 rounded-lg flex items-center justify-center mb-4">
+                                    <i data-lucide="bookmark" class="w-6 h-6 text-white"></i>
+                                </div>
+                                <h3 class="text-xl font-semibold text-gray-900 mb-3">Micro-Credentials</h3>
+                                <p class="text-gray-600 mb-4">
+                                    Earn and showcase specific skills with blockchain-verified micro-credentials and badges.
+                                </p>
+                                <button class="text-primary-600 font-medium hover:text-primary-700 transition-colors duration-200">
+                                    Learn More →
+                                </button>
+                            </div>
+
+                            <div class="card hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+                                <div class="w-12 h-12 crypto-gradient rounded-lg flex items-center justify-center mb-4">
+                                    <i data-lucide="credit-card" class="w-6 h-6 text-white"></i>
+                                </div>
+                                <h3 class="text-xl font-semibold text-gray-900 mb-3">Crypto Payments</h3>
+                                <p class="text-gray-600 mb-4">
+                                    Pay tuition fees with cryptocurrencies and stablecoins for global accessibility.
+                                </p>
+                                <button class="text-primary-600 font-medium hover:text-primary-700 transition-colors duration-200">
+                                    Learn More →
+                                </button>
+                            </div>
+
+                            <div class="card hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+                                <div class="w-12 h-12 bg-purple-500 rounded-lg flex items-center justify-center mb-4">
+                                    <i data-lucide="copyright" class="w-6 h-6 text-white"></i>
+                                </div>
+                                <h3 class="text-xl font-semibold text-gray-900 mb-3">IP Protection</h3>
+                                <p class="text-gray-600 mb-4">
+                                    Protect educational content with blockchain-based copyright and ownership verification.
+                                </p>
+                                <button class="text-primary-600 font-medium hover:text-primary-700 transition-colors duration-200">
+                                    Learn More →
+                                </button>
+                            </div>
+
+                            <div class="card hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+                                <div class="w-12 h-12 bg-blue-500 rounded-lg flex items-center justify-center mb-4">
+                                    <i data-lucide="qr-code" class="w-6 h-6 text-white"></i>
+                                </div>
+                                <h3 class="text-xl font-semibold text-gray-900 mb-3">QR Verification</h3>
+                                <p class="text-gray-600 mb-4">
+                                    Instantly verify certificates and credentials with QR code scanning technology.
+                                </p>
+                                <button class="text-primary-600 font-medium hover:text-primary-700 transition-colors duration-200">
+                                    Learn More →
+                                </button>
+                            </div>
+
+                            <div class="card hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+                                <div class="w-12 h-12 bg-indigo-500 rounded-lg flex items-center justify-center mb-4">
+                                    <i data-lucide="database" class="w-6 h-6 text-white"></i>
+                                </div>
+                                <h3 class="text-xl font-semibold text-gray-900 mb-3">IPFS Storage</h3>
+                                <p class="text-gray-600 mb-4">
+                                    Decentralized file storage ensures your educational documents are always accessible.
+                                </p>
+                                <button class="text-primary-600 font-medium hover:text-primary-700 transition-colors duration-200">
+                                    Learn More →
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- How It Works Section -->
+                <section id="how-it-works" class="py-20 bg-gray-50">
+                    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                        <div class="text-center mb-16">
+                            <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+                                How EduChain Works
+                            </h2>
+                            <p class="text-xl text-gray-600 max-w-2xl mx-auto">
+                                Simple, secure, and transparent process for issuing and verifying educational credentials
+                            </p>
+                        </div>
+
+                        <div class="grid md:grid-cols-3 gap-8">
+                            <div class="text-center">
+                                <div class="w-16 h-16 bg-primary-600 rounded-full flex items-center justify-center mx-auto mb-6 transform hover:scale-110 transition-transform duration-200">
+                                    <span class="text-2xl font-bold text-white">1</span>
+                                </div>
+                                <h3 class="text-xl font-semibold text-gray-900 mb-4">Create & Issue</h3>
+                                <p class="text-gray-600">
+                                    Educational institutions create and issue digital certificates directly on the blockchain
+                                </p>
+                            </div>
+
+                            <div class="text-center">
+                                <div class="w-16 h-16 bg-primary-600 rounded-full flex items-center justify-center mx-auto mb-6 transform hover:scale-110 transition-transform duration-200">
+                                    <span class="text-2xl font-bold text-white">2</span>
+                                </div>
+                                <h3 class="text-xl font-semibold text-gray-900 mb-4">Store Securely</h3>
+                                <p class="text-gray-600">
+                                    Credentials are encrypted and stored on IPFS with blockchain hashes for immutability
+                                </p>
+                            </div>
+
+                            <div class="text-center">
+                                <div class="w-16 h-16 bg-primary-600 rounded-full flex items-center justify-center mx-auto mb-6 transform hover:scale-110 transition-transform duration-200">
+                                    <span class="text-2xl font-bold text-white">3</span>
+                                </div>
+                                <h3 class="text-xl font-semibold text-gray-900 mb-4">Verify Instantly</h3>
+                                <p class="text-gray-600">
+                                    Anyone can verify credentials instantly using QR codes or blockchain hash verification
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Pricing Section -->
+                <section id="pricing" class="py-20 bg-white">
+                    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                        <div class="text-center mb-16">
+                            <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+                                Simple Pricing
+                            </h2>
+                            <p class="text-xl text-gray-600 max-w-2xl mx-auto">
+                                Choose the plan that fits your institution's needs
+                            </p>
+                        </div>
+
+                        <div class="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+                            <div class="card text-center">
+                                <h3 class="text-xl font-semibold text-gray-900 mb-4">Basic</h3>
+                                <div class="text-3xl font-bold text-gray-900 mb-2">$99<span class="text-lg text-gray-600">/month</span></div>
+                                <p class="text-gray-600 mb-6">Perfect for small institutions</p>
+                                <ul class="text-left space-y-2 mb-6">
+                                    <li class="flex items-center"><i data-lucide="check" class="w-4 h-4 text-green-500 mr-2"></i>Up to 100 certificates</li>
+                                    <li class="flex items-center"><i data-lucide="check" class="w-4 h-4 text-green-500 mr-2"></i>Basic verification</li>
+                                    <li class="flex items-center"><i data-lucide="check" class="w-4 h-4 text-green-500 mr-2"></i>Email support</li>
+                                </ul>
+                                <button id="getStartedBasicBtn" class="w-full btn-secondary">Get Started</button>
+                            </div>
+
+                            <div class="card text-center border-2 border-primary-500 relative">
+                                <div class="absolute -top-3 left-1/2 transform -translate-x-1/2 bg-primary-500 text-white px-3 py-1 rounded-full text-sm">Most Popular</div>
+                                <h3 class="text-xl font-semibold text-gray-900 mb-4">Professional</h3>
+                                <div class="text-3xl font-bold text-gray-900 mb-2">$299<span class="text-lg text-gray-600">/month</span></div>
+                                <p class="text-gray-600 mb-6">Great for growing institutions</p>
+                                <ul class="text-left space-y-2 mb-6">
+                                    <li class="flex items-center"><i data-lucide="check" class="w-4 h-4 text-green-500 mr-2"></i>Up to 1,000 certificates</li>
+                                    <li class="flex items-center"><i data-lucide="check" class="w-4 h-4 text-green-500 mr-2"></i>Advanced verification</li>
+                                    <li class="flex items-center"><i data-lucide="check" class="w-4 h-4 text-green-500 mr-2"></i>Priority support</li>
+                                    <li class="flex items-center"><i data-lucide="check" class="w-4 h-4 text-green-500 mr-2"></i>Custom branding</li>
+                                </ul>
+                                <button id="getStartedProBtn" class="w-full btn-primary">Get Started</button>
+                            </div>
+
+                            <div class="card text-center">
+                                <h3 class="text-xl font-semibold text-gray-900 mb-4">Enterprise</h3>
+                                <div class="text-3xl font-bold text-gray-900 mb-2">Custom</div>
+                                <p class="text-gray-600 mb-6">For large institutions</p>
+                                <ul class="text-left space-y-2 mb-6">
+                                    <li class="flex items-center"><i data-lucide="check" class="w-4 h-4 text-green-500 mr-2"></i>Unlimited certificates</li>
+                                    <li class="flex items-center"><i data-lucide="check" class="w-4 h-4 text-green-500 mr-2"></i>Full customization</li>
+                                    <li class="flex items-center"><i data-lucide="check" class="w-4 h-4 text-green-500 mr-2"></i>24/7 support</li>
+                                    <li class="flex items-center"><i data-lucide="check" class="w-4 h-4 text-green-500 mr-2"></i>API access</li>
+                                </ul>
+                                <button id="contactSalesBtn" class="w-full btn-secondary">Contact Sales</button>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- CTA Section -->
+                <section class="py-20 blockchain-gradient">
+                    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                        <h2 class="text-3xl md:text-4xl font-bold text-white mb-6">
+                            Ready to Transform Education?
+                        </h2>
+                        <p class="text-xl text-blue-100 mb-8">
+                            Join thousands of institutions already using blockchain for secure, verifiable credentials
+                        </p>
+                        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                            <button id="startFreeTrialBtn" class="bg-white text-primary-600 hover:bg-gray-100 font-semibold py-3 px-8 rounded-lg transition-colors duration-200">
+                                Start Free Trial
+                            </button>
+                            <button id="requestDemoBtn" class="border-2 border-white text-white hover:bg-white hover:text-primary-600 font-semibold py-3 px-8 rounded-lg transition-colors duration-200">
+                                Request Demo
+                            </button>
+                        </div>
+                    </div>
+                </section>
+            </div>
+
+            <!-- Student Dashboard -->
+            <div id="studentDashboard" class="hidden pt-20">
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+                    <div class="mb-8">
+                        <h1 class="text-3xl font-bold text-gray-900">Student Dashboard</h1>
+                        <p class="text-gray-600 mt-2">Manage your digital credentials and academic progress</p>
+                    </div>
+
+                    <div class="grid lg:grid-cols-4 gap-6 mb-8">
+                        <div class="card hover:shadow-lg transition-shadow duration-200">
+                            <div class="flex items-center justify-between">
+                                <div>
+                                    <p class="text-sm text-gray-600">Total Certificates</p>
+                                    <p class="text-2xl font-bold text-gray-900">12</p>
+                                </div>
+                                <i data-lucide="award" class="w-8 h-8 text-primary-600"></i>
+                            </div>
+                        </div>
+
+                        <div class="card hover:shadow-lg transition-shadow duration-200">
+                            <div class="flex items-center justify-between">
+                                <div>
+                                    <p class="text-sm text-gray-600">Micro-Credentials</p>
+                                    <p class="text-2xl font-bold text-gray-900">25</p>
+                                </div>
+                                <i data-lucide="bookmark" class="w-8 h-8 text-green-600"></i>
+                            </div>
+                        </div>
+
+                        <div class="card hover:shadow-lg transition-shadow duration-200">
+                            <div class="flex items-center justify-between">
+                                <div>
+                                    <p class="text-sm text-gray-600">Courses Completed</p>
+                                    <p class="text-2xl font-bold text-gray-900">8</p>
+                                </div>
+                                <i data-lucide="graduation-cap" class="w-8 h-8 text-blue-600"></i>
+                            </div>
+                        </div>
+
+                        <div class="card hover:shadow-lg transition-shadow duration-200">
+                            <div class="flex items-center justify-between">
+                                <div>
+                                    <p class="text-sm text-gray-600">Total ETH Spent</p>
+                                    <p class="text-2xl font-bold text-gray-900">2.5</p>
+                                </div>
+                                <i data-lucide="coins" class="w-8 h-8 text-yellow-600"></i>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="grid lg:grid-cols-2 gap-8">
+                        <div class="card">
+                            <div class="flex items-center justify-between mb-4">
+                                <h3 class="text-xl font-semibold text-gray-900">My Certificates</h3>
+                                <button id="viewAllCertificatesBtn" class="text-primary-600 hover:text-primary-700 text-sm font-medium">
+                                    View All
+                                </button>
+                            </div>
+                            <div class="space-y-4">
+                                <div class="flex items-center justify-between p-4 border border-gray-200 rounded-lg hover:bg-gray-50 transition-colors duration-200">
+                                    <div class="flex items-center space-x-4">
+                                        <div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center">
+                                            <i data-lucide="award" class="w-6 h-6 text-blue-600"></i>
+                                        </div>
+                                        <div>
+                                            <h4 class="font-medium text-gray-900">Bachelor of Computer Science</h4>
+                                            <p class="text-sm text-gray-600">MIT • May 2023</p>
+                                        </div>
+                                    </div>
+                                    <div class="flex space-x-2">
+                                        <button class="text-primary-600 hover:text-primary-700 p-1" title="Download">
+                                            <i data-lucide="download" class="w-5 h-5"></i>
+                                        </button>
+                                        <button class="text-gray-600 hover:text-gray-700 p-1" title="Share">
+                                            <i data-lucide="share-2" class="w-5 h-5"></i>
+                                        </button>
+                                    </div>
+                                </div>
+
+                                <div class="flex items-center justify-between p-4 border border-gray-200 rounded-lg hover:bg-gray-50 transition-colors duration-200">
+                                    <div class="flex items-center space-x-4">
+                                        <div class="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center">
+                                            <i data-lucide="award" class="w-6 h-6 text-green-600"></i>
+                                        </div>
+                                        <div>
+                                            <h4 class="font-medium text-gray-900">Blockchain Development</h4>
+                                            <p class="text-sm text-gray-600">Stanford Online • June 2023</p>
+                                        </div>
+                                    </div>
+                                    <div class="flex space-x-2">
+                                        <button class="text-primary-600 hover:text-primary-700 p-1" title="Download">
+                                            <i data-lucide="download" class="w-5 h-5"></i>
+                                        </button>
+                                        <button class="text-gray-600 hover:text-gray-700 p-1" title="Share">
+                                            <i data-lucide="share-2" class="w-5 h-5"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="card">
+                            <h3 class="text-xl font-semibold text-gray-900 mb-4">Recent Activity</h3>
+                            <div class="space-y-4">
+                                <div class="flex items-start space-x-4">
+                                    <div class="w-2 h-2 bg-green-500 rounded-full mt-2"></div>
+                                    <div>
+                                        <p class="text-sm font-medium text-gray-900">Certificate verified by Google</p>
+                                        <p class="text-xs text-gray-500">2 hours ago</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-start space-x-4">
+                                    <div class="w-2 h-2 bg-blue-500 rounded-full mt-2"></div>
+                                    <div>
+                                        <p class="text-sm font-medium text-gray-900">New micro-credential earned</p>
+                                        <p class="text-xs text-gray-500">1 day ago</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-start space-x-4">
+                                    <div class="w-2 h-2 bg-yellow-500 rounded-full mt-2"></div>
+                                    <div>
+                                        <p class="text-sm font-medium text-gray-900">Payment processed: 0.5 ETH</p>
+                                        <p class="text-xs text-gray-500">3 days ago</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Teacher Dashboard -->
+            <div id="teacherDashboard" class="hidden pt-20">
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+                    <div class="mb-8">
+                        <h1 class="text-3xl font-bold text-gray-900">Instructor Dashboard</h1>
+                        <p class="text-gray-600 mt-2">Manage courses, issue certificates, and track student progress</p>
+                    </div>
+
+                    <div class="grid lg:grid-cols-4 gap-6 mb-8">
+                        <div class="card hover:shadow-lg transition-shadow duration-200">
+                            <div class="flex items-center justify-between">
+                                <div>
+                                    <p class="text-sm text-gray-600">Active Courses</p>
+                                    <p class="text-2xl font-bold text-gray-900">6</p>
+                                </div>
+                                <i data-lucide="book-open" class="w-8 h-8 text-primary-600"></i>
+                            </div>
+                        </div>
+
+                        <div class="card hover:shadow-lg transition-shadow duration-200">
+                            <div class="flex items-center justify-between">
+                                <div>
+                                    <p class="text-sm text-gray-600">Students Enrolled</p>
+                                    <p class="text-2xl font-bold text-gray-900">342</p>
+                                </div>
+                                <i data-lucide="users" class="w-8 h-8 text-green-600"></i>
+                            </div>
+                        </div>
+
+                        <div class="card hover:shadow-lg transition-shadow duration-200">
+                            <div class="flex items-center justify-between">
+                                <div>
+                                    <p class="text-sm text-gray-600">Certificates Issued</p>
+                                    <p class="text-2xl font-bold text-gray-900">124</p>
+                                </div>
+                                <i data-lucide="award" class="w-8 h-8 text-blue-600"></i>
+                            </div>
+                        </div>
+
+                        <div class="card hover:shadow-lg transition-shadow duration-200">
+                            <div class="flex items-center justify-between">
+                                <div>
+                                    <p class="text-sm text-gray-600">Revenue (ETH)</p>
+                                    <p class="text-2xl font-bold text-gray-900">15.7</p>
+                                </div>
+                                <i data-lucide="trending-up" class="w-8 h-8 text-yellow-600"></i>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="grid lg:grid-cols-3 gap-8">
+                        <div class="lg:col-span-2 card">
+                            <div class="flex items-center justify-between mb-6">
+                                <h3 class="text-xl font-semibold text-gray-900">Course Management</h3>
+                                <button id="createCourseBtn" class="btn-primary flex items-center">
+                                    <i data-lucide="plus" class="w-4 h-4 mr-2"></i>
+                                    New Course
+                                </button>
+                            </div>
+                            <div class="space-y-4">
+                                <div class="p-4 border border-gray-200 rounded-lg hover:bg-gray-50 transition-colors duration-200">
+                                    <div class="flex items-center justify-between">
+                                        <div>
+                                            <h4 class="font-medium text-gray-900">Blockchain Fundamentals</h4>
+                                            <p class="text-sm text-gray-600">85 students • Active</p>
+                                        </div>
+                                        <div class="flex space-x-2">
+                                            <button class="text-primary-600 hover:text-primary-700 p-1" title="Edit">
+                                                <i data-lucide="edit" class="w-4 h-4"></i>
+                                            </button>
+                                            <button class="text-green-600 hover:text-green-700 p-1" title="Issue Certificates">
+                                                <i data-lucide="award" class="w-4 h-4"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="p-4 border border-gray-200 rounded-lg hover:bg-gray-50 transition-colors duration-200">
+                                    <div class="flex items-center justify-between">
+                                        <div>
+                                            <h4 class="font-medium text-gray-900">Smart Contract Development</h4>
+                                            <p class="text-sm text-gray-600">62 students • Active</p>
+                                        </div>
+                                        <div class="flex space-x-2">
+                                            <button class="text-primary-600 hover:text-primary-700 p-1" title="Edit">
+                                                <i data-lucide="edit" class="w-4 h-4"></i>
+                                            </button>
+                                            <button class="text-green-600 hover:text-green-700 p-1" title="Issue Certificates">
+                                                <i data-lucide="award" class="w-4 h-4"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="card">
+                            <h3 class="text-xl font-semibold text-gray-900 mb-6">Quick Actions</h3>
+                            <div class="space-y-4">
+                                <button id="issueCertificateBtn" class="w-full btn-primary text-left flex items-center">
+                                    <i data-lucide="award" class="w-4 h-4 mr-3"></i>
+                                    Issue Certificate
+                                </button>
+                                <button id="uploadContentBtn" class="w-full btn-secondary text-left flex items-center">
+                                    <i data-lucide="upload" class="w-4 h-4 mr-3"></i>
+                                    Upload Content
+                                </button>
+                                <button id="verifySubmissionBtn" class="w-full btn-secondary text-left flex items-center">
+                                    <i data-lucide="check-circle" class="w-4 h-4 mr-3"></i>
+                                    Verify Submission
+                                </button>
+                                <button id="managePaymentsBtn" class="w-full btn-secondary text-left flex items-center">
+                                    <i data-lucide="credit-card" class="w-4 h-4 mr-3"></i>
+                                    Manage Payments
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Certificate Verification Page -->
+            <div id="verificationPage" class="hidden pt-20">
+                <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+                    <div class="text-center mb-8">
+                        <h1 class="text-3xl font-bold text-gray-900">Certificate Verification</h1>
+                        <p class="text-gray-600 mt-2">Verify the authenticity of blockchain certificates</p>
+                    </div>
+
+                    <div class="card max-w-2xl mx-auto">
+                        <div id="verificationForm">
+                            <div class="text-center mb-6">
+                                <div class="w-20 h-20 bg-primary-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                                    <i data-lucide="qr-code" class="w-10 h-10 text-primary-600"></i>
+                                </div>
+                                <h3 class="text-xl font-semibold text-gray-900">Verify Certificate</h3>
+                            </div>
+
+                            <div class="space-y-4">
+                                <div>
+                                    <label class="block text-sm font-medium text-gray-700 mb-2">Certificate Hash</label>
+                                    <input type="text" id="certificateHash" 
+                                           placeholder="Enter certificate hash or scan QR code"
+                                           class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-colors duration-200">
+                                </div>
+
+                                <button id="verifyCertificateBtn" class="w-full btn-primary flex items-center justify-center">
+                                    <i data-lucide="search" class="w-4 h-4 mr-2"></i>
+                                    Verify Certificate
+                                </button>
+
+                                <div class="text-center">
+                                    <span class="text-gray-500">or</span>
+                                </div>
+
+                                <button id="scanQRBtn" class="w-full btn-secondary flex items-center justify-center">
+                                    <i data-lucide="camera" class="w-4 h-4 mr-2"></i>
+                                    Scan QR Code
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Verification Result -->
+                        <div id="verificationResultContainer" class="hidden mt-6">
+                            <!-- Valid Certificate -->
+                            <div id="verificationResultValid" class="hidden p-4 border border-green-200 bg-green-50 rounded-lg">
+                                <div class="flex items-center space-x-3">
+                                    <i data-lucide="check-circle" class="w-6 h-6 text-green-600"></i>
+                                    <div>
+                                        <h4 class="font-medium text-green-900">Certificate Verified</h4>
+                                        <p class="text-sm text-green-700">This certificate is authentic and valid.</p>
+                                    </div>
+                                </div>
+                                <div class="mt-4 pt-4 border-t border-green-200">
+                                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm">
+                                        <div>
+                                            <span class="font-medium text-gray-900">Issued to:</span>
+                                            <p id="verificationName" class="text-gray-700"></p>
+                                        </div>
+                                        <div>
+                                            <span class="font-medium text-gray-900">Institution:</span>
+                                            <p id="verificationInstitution" class="text-gray-700"></p>
+                                        </div>
+                                        <div>
+                                            <span class="font-medium text-gray-900">Date Issued:</span>
+                                            <p id="verificationDate" class="text-gray-700"></p>
+                                        </div>
+                                        <div class="md:col-span-2">
+                                            <span class="font-medium text-gray-900">Certificate Hash:</span>
+                                            <p id="verificationHash" class="text-gray-700 break-all"></p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Invalid Certificate -->
+                            <div id="verificationResultInvalid" class="hidden p-4 border border-red-200 bg-red-50 rounded-lg">
+                                <div class="flex items-center space-x-3">
+                                    <i data-lucide="x-circle" class="w-6 h-6 text-red-600"></i>
+                                    <div>
+                                        <h4 class="font-medium text-red-900">Verification Failed</h4>
+                                        <p class="text-sm text-red-700">The provided certificate hash could not be found or is invalid.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <button id="verifyAnotherBtn" class="hidden w-full btn-secondary mt-4">Verify Another Certificate</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Payment Interface -->
+            <div id="paymentPage" class="hidden pt-20">
+                <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+                    <div class="text-center mb-8">
+                        <h1 class="text-3xl font-bold text-gray-900">Course Payment</h1>
+                        <p class="text-gray-600 mt-2">Pay with cryptocurrency for instant access</p>
+                    </div>
+
+                    <div class="grid lg:grid-cols-2 gap-8">
+                        <div class="card">
+                            <h3 class="text-xl font-semibold text-gray-900 mb-4">Course Details</h3>
+                            <div class="space-y-4">
+                                <div class="flex items-center space-x-4">
+                                    <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=100&h=100&fit=crop" 
+                                         alt="Course thumbnail" class="w-16 h-16 rounded-lg object-cover">
+                                    <div>
+                                        <h4 class="font-medium text-gray-900">Advanced Blockchain Development</h4>
+                                        <p class="text-sm text-gray-600">12 weeks • Certificate included</p>
+                                    </div>
+                                </div>
+                                <div class="border-t pt-4">
+                                    <div class="flex justify-between py-2">
+                                        <span class="text-gray-600">Course Fee</span>
+                                        <span class="font-medium">0.5 ETH</span>
+                                    </div>
+                                    <div class="flex justify-between py-2">
+                                        <span class="text-gray-600">Certificate Fee</span>
+                                        <span class="font-medium">0.1 ETH</span>
+                                    </div>
+                                    <div class="flex justify-between py-2 border-t font-semibold">
+                                        <span>Total</span>
+                                        <span id="paymentAmount">0.6 ETH</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="card">
+                            <h3 class="text-xl font-semibold text-gray-900 mb-4">Payment Method</h3>
+                            <div class="space-y-4">
+                                <div>
+                                    <label class="block text-sm font-medium text-gray-700 mb-2">Select Cryptocurrency</label>
+                                    <select id="cryptoSelect" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-colors duration-200">
+                                        <option value="ETH">Ethereum (ETH)</option>
+                                        <option value="USDT">Tether (USDT)</option>
+                                        <option value="USDC">USD Coin (USDC)</option>
+                                        <option value="DAI">DAI</option>
+                                    </select>
+                                </div>
+
+                                <div>
+                                    <label class="block text-sm font-medium text-gray-700 mb-2">Wallet Address</label>
+                                    <input type="text" id="walletAddress" 
+                                           placeholder="Connect wallet or enter address"
+                                           class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-colors duration-200">
+                                </div>
+
+                                <div class="p-4 bg-blue-50 border border-blue-200 rounded-lg">
+                                    <div class="flex items-center space-x-2 mb-2">
+                                        <i data-lucide="info" class="w-4 h-4 text-blue-600"></i>
+                                        <span class="text-sm font-medium text-blue-900">Payment Information</span>
+                                    </div>
+                                    <p class="text-sm text-blue-700">
+                                        After payment confirmation on the blockchain, you'll receive instant access to the course and your certificate upon completion.
+                                    </p>
+                                </div>
+
+                                <button id="payWithCryptoBtn" class="w-full btn-primary flex items-center justify-center">
+                                    <i data-lucide="credit-card" class="w-4 h-4 mr-2"></i>
+                                    Pay with Crypto
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Modals -->
+        <div id="loginModal" class="fixed inset-0 bg-black bg-opacity-50 z-50 hidden flex items-center justify-center">
+            <div class="bg-white rounded-xl p-6 w-full max-w-md mx-4">
+                <div class="text-center mb-6">
+                    <h3 class="text-xl font-semibold text-gray-900">Login to EduChain</h3>
+                </div>
+                <div class="space-y-4">
+                    <button id="studentLoginBtn" class="w-full btn-primary flex items-center justify-center">
+                        <i data-lucide="user" class="w-4 h-4 mr-2"></i>
+                        Student Login
+                    </button>
+                    <button id="teacherLoginBtn" class="w-full btn-secondary flex items-center justify-center">
+                        <i data-lucide="graduation-cap" class="w-4 h-4 mr-2"></i>
+                        Instructor Login
+                    </button>
+                    <button id="verifyLoginBtn" class="w-full btn-secondary flex items-center justify-center">
+                        <i data-lucide="shield-check" class="w-4 h-4 mr-2"></i>
+                        Verify Certificate
+                    </button>
+                </div>
+                <button id="closeLoginModal" class="mt-4 w-full text-gray-600 hover:text-gray-800 transition-colors duration-200">
+                    Cancel
+                </button>
+            </div>
+        </div>
+
+        <!-- Wallet Status -->
+        <div id="walletStatus" class="fixed bottom-4 right-4 card hidden">
+            <div class="flex items-center space-x-3">
+                <div class="w-3 h-3 bg-green-500 rounded-full"></div>
+                <span class="text-sm font-medium">Wallet Connected</span>
+                <span id="walletStatusAddress" class="text-xs text-gray-600"></span>
+            </div>
+        </div>
+
+        <!-- Notification Container -->
+        <div id="notificationContainer" class="fixed top-20 right-4 z-[70] space-y-2"></div>
+    </div>
+
+    <script type="module" src="/main.js"></script>
+</body>
+</html>
